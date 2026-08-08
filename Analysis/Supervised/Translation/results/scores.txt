@@ -1,0 +1,15 @@
+
+
+Test Loss: 0.2844
+Test Macro F1: 0.9011
+
+Classification Report:
+                      precision    recall  f1-score   support
+
+      Translated (0)     0.8814    0.7787    0.8269       601
+Original English (1)     0.9669    0.9840    0.9754      3945
+
+            accuracy                         0.9569      4546
+           macro avg     0.9241    0.8814    0.9011      4546
+        weighted avg     0.9556    0.9569    0.9557      4546
+
