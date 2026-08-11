@@ -10,7 +10,7 @@ A structured JSON dataset of the *Collected Works of Mahatma Gandhi*, extracted 
 | Total documents | 45,458 |
 | Corpus size | 100.57 MB |
 | Format | Structured JSON |
-| Character count | 90,002,340 |
+| Character count | 88,394,471 |
 | Token count (NLTK) | 18,419,112 |
 | Token count (BPE, tiktoken) | 21,094,055 |
 | Time period | 1884 – 1948 |
@@ -134,9 +134,14 @@ Prefixed exact dates account for 3.86% of the dated corpus. Dates appearing insi
 
 ## Known limitations
 
-The 1999 electronic edition was produced by OCR and was later found to contain errors and inconsistencies relative to the print volumes; page and volume numbers do not always match. It was chosen as the source because the 2005 digital edition does not contain machine-readable text.
+The 1999 electronic edition contains errors and inconsistencies relative to the print volumes, and page and volume numbers do not always correspond. It was
+chosen as the source because its publisher-generated text layer preserves the per-span typographic attributes — font, size, and style — that the parsing
+pipeline relies on to separate primary text from editorial matter. The later scanned edition carries an OCR layer over page images, in which those
+attributes are estimated rather than authentic and are not usable for this purpose.
 
-The parsing pipeline relies on typographic and layout heuristics, so the corpus inherits OCR artifacts and pagination differences from the source. Rule-based cleaning and manual verification were applied, but inspecting all 45,458 documents individually is not feasible and residual transcription errors remain. Corrections submitted through the issue tracker will be incorporated into future releases.
+The parsing pipeline relies on typographic and layout heuristics, so the corpus inherits text artifacts and pagination differences from the source. Rule-based
+cleaning and manual verification were applied, but inspecting all 45,458 documents individually is not feasible and residual transcription errors
+remain. Corrections submitted through the issue tracker will be incorporated into future releases.
 
 ## About the source material
 
