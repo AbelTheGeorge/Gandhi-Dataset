@@ -8,7 +8,6 @@ A structured JSON dataset of the *Collected Works of Mahatma Gandhi*, extracted 
 | :--- | :--- |
 | Total volumes | 98 |
 | Total documents | 45,458 |
-| Corpus size | 100.57 MB |
 | Format | Structured JSON |
 | Character count | 88,394,471 |
 | Token count (NLTK) | 18,419,112 |
@@ -18,7 +17,7 @@ A structured JSON dataset of the *Collected Works of Mahatma Gandhi*, extracted 
 | Original languages | 9 |
 | Documents with an identifiable date | 45,141 (99.3%) |
 
-Documents range from 9 to 958,739 characters, with a median of 678 and a mean of 1,573. Sentences run from 2 to 100 words, median 13, mean 15.7. Mean Flesch-Kincaid grade level is 7.01.
+Documents range from 9 to 958,739 characters, with a median of 740 and a mean of 1,759. Sentences run from 2 to 422 words, median 13, mean 15.9. Mean Flesch-Kincaid grade level is 7.01.
 
 ## Dataset Structure
 
@@ -65,8 +64,8 @@ The dataset is a single JSON file containing a list of objects, each representin
 
 | Category | Count | Category | Count |
 | :--- | ---: | :--- | ---: |
-| LETTER | 30,076 | ARTICLE | 6,748 |
-| TRANSCRIPT | 4,677 | TELEGRAM | 2,361 |
+| LETTER | 30,077 | ARTICLE | 6,748 |
+| TRANSCRIPT | 4,677 | TELEGRAM | 2,360 |
 | PROSE | 1,596 | | |
 
 Letters account for roughly 66% of the corpus.
@@ -77,9 +76,9 @@ All text in the dataset is in English. This field records the language of compos
 
 | Language | Count | Language | Count | Language | Count |
 | :--- | ---: | :--- | ---: | :--- | ---: |
-| English | 39,465 | Urdu | 18 | Bengali | 1 |
-| Gujarati | 5,048 | Marathi | 2 | Oriya | 1 |
-| Hindi | 921 | Tamil | 1 | French | 1 |
+| English | 39,455 | Urdu | 18 | Bengali | 1 |
+| Gujarati | 5,054 | Marathi | 2 | Oriya | 1 |
+| Hindi | 925 | Tamil | 1 | French | 1 |
 
 ## `document_type` assignment
 

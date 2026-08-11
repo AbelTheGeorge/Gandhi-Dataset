@@ -23,7 +23,10 @@ matplotlib.rcParams["ps.fonttype"] = 42
 
 
 
-GANDHI_PATH = "/EnterPathHere"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+GANDHI_PATH = os.path.normpath(
+    os.path.join(SCRIPT_DIR, "..", "..", "..", "The-Collected-Works-Mahatma-Gandhi.json")
+)
 
 
 def _resolve_results_root():

@@ -16,7 +16,9 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 1000)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-GANDHI_PATH = os.path.join(SCRIPT_DIR, "Datasets", "The-Collected-Works-Mahatma-Gandhi.json")
+GANDHI_PATH = os.path.normpath(
+    os.path.join(SCRIPT_DIR, "..", "..", "The-Collected-Works-Mahatma-Gandhi.json")
+)
 RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
