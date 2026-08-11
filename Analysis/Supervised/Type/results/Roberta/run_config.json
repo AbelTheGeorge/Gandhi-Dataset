@@ -1,0 +1,24 @@
+{
+  "condition": "raw",
+  "seed": 42,
+  "model": "roberta-base",
+  "max_length": 512,
+  "batch_size": 64,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "max_epochs": 25,
+  "warmup_ratio": 0.1,
+  "patience": 5,
+  "split": "80/10/10 stratified",
+  "n_train": 36366,
+  "n_val": 4546,
+  "n_test": 4546,
+  "pct_documents_truncated": 20.328998826750098,
+  "class_weights": {
+    "ARTICLE": 1.1607703999725312,
+    "LETTER": 0.5498129357692052,
+    "PROSE": 2.3865322988531013,
+    "TELEGRAM": 1.9622158799030163,
+    "TRANSCRIPT": 1.3941543990924459
+  }
+}

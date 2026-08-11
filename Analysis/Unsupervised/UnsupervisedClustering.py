@@ -15,7 +15,6 @@ from bertopic import BERTopic
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 1000)
 
-# ── Paths ──────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 GANDHI_PATH = os.path.join(SCRIPT_DIR, "Datasets", "The-Collected-Works-Mahatma-Gandhi.json")
 RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
@@ -25,7 +24,6 @@ print("=" * 70)
 print("1. SETUP, STOPWORDS & DATA LOADING")
 print("=" * 70)
 
-# Define custom stopwords based on dataset specifics
 custom_stop_words = [
     "bapu", "blessings", "chi", "dear", "mr", "sincerely", "gandhi",
     "letter", "people", "time", "ashram", "sabarmati", "sevagram", "glad",
@@ -38,7 +36,6 @@ custom_stop_words = [
     "received", "happy", "dr", "right", "day", "long", "just"
 ]
 
-# A large list of common English verbs in various forms to prevent them from dominating topics
 common_verbs = [
     "say", "said", "says", "saying", "go", "went", "gone", "goes", "going", 
     "make", "made", "makes", "making", "take", "took", "taken", "takes", "taking", 
@@ -88,15 +85,12 @@ common_verbs = [
 ]
 custom_stop_words.extend(common_verbs)
 
-# Dynamically add all years from 1880 to 1950 to the stop words list
 year_stopwords = [str(year) for year in range(1880, 1951)]
 custom_stop_words.extend(year_stopwords)
 
-# Merge standard English stopwords with our custom list
 ALL_STOP_WORDS = list(ENGLISH_STOP_WORDS.union(custom_stop_words))
 print(f"Loaded {len(ALL_STOP_WORDS)} total stopwords to filter out noise (including years 1880-1950 and common verbs).")
 
-# Load the JSON dataset
 with open(GANDHI_PATH, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
@@ -121,9 +115,6 @@ df['clean_text'] = df['contents'].apply(clean_and_extract_text)
 df_filtered = df[df['clean_text'] != ""].copy()
 print(f"Documents with valid text retained: {len(df_filtered):,}")
 
-# ---------------------------------------------------------
-# CHUNKING LOGIC FOR 'e5-base-v2' (512 Token Limit)
-# ---------------------------------------------------------
 WORDS_PER_CHUNK = 300
 OVERLAP_WORDS = 10
 
@@ -154,7 +145,6 @@ print(f"Target Max Tokens: 450 (~{WORDS_PER_CHUNK} words)")
 print(f"Target Overlap: 64 characters (~{OVERLAP_WORDS} words)")
 print(f"Total chunks created: {len(df_chunks):,}")
 
-# Extract list for BERTopic
 docs = df_chunks['chunk_text'].tolist()
 
 
@@ -162,22 +152,17 @@ print("\n" + "=" * 70)
 print("3. TRAINING BERTopic WITH INTFLOAT/E5-BASE-V2")
 print("=" * 70)
 
-# A. Embedding Model
 import torch
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Loading 'e5-base-v2' onto {device.upper()}...")
 embedding_model = SentenceTransformer("intfloat/e5-base-v2", device=device)
 
-# B. Dimensionality Reduction
 umap_model = UMAP(n_neighbors=15, n_components=5, min_dist=0.0, metric='cosine', random_state=42)
 
-# C. Clustering Model
 hdbscan_model = HDBSCAN(min_cluster_size=100, metric='euclidean', cluster_selection_method='eom', prediction_data=True)
 
-# D. Vectorizer (USING OUR CUSTOM STOPWORDS)
 vectorizer_model = CountVectorizer(stop_words=ALL_STOP_WORDS, ngram_range=(1, 2))
 
-# Initialize BERTopic
 topic_model = BERTopic(
     embedding_model=embedding_model,
     umap_model=umap_model,
@@ -197,17 +182,14 @@ print("\n" + "=" * 70)
 print("4. SAVING RESULTS")
 print("=" * 70)
 
-# Get the dataframe of topics (Topic -1 is the "noise" bin)
 topic_info = topic_model.get_topic_info()
 print(f"\nDiscovered {len(topic_info) - 1} distinct topics (excluding noise).")
 print("\nTop 15 Largest Topics")
 print(topic_info.head(16)[['Topic', 'Count', 'Name']])
 
-# Save to CSV
 topic_info.to_csv(os.path.join(RESULTS_DIR, 'bertopic_summary_e5.csv'), index=False)
 print(f"Saved topic summary CSV to: {os.path.join(RESULTS_DIR, 'bertopic_summary_e5.csv')}")
 
-# Save BERTopic model for later visualization (without the large embedding model)
 MODEL_DIR = os.path.join(RESULTS_DIR, "bertopic_model")
 topic_model.save(MODEL_DIR, serialization="safetensors", save_ctfidf=True, save_embedding_model=False)
 print(f"Saved BERTopic model to: {MODEL_DIR}")

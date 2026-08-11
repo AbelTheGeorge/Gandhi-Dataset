@@ -1,42 +1,17 @@
-"""
-GenerateViz.py
-──────────────
-Loads a saved BERTopic model from results/bertopic_model and generates:
-
-  Interactive HTML (Plotly):
-    1. bertopic_barchart_e5.html        – Top words per topic (bar chart)
-    2. bertopic_intertopic_map_e5.html  – Intertopic distance map
-
-  Publication-quality static figures (Matplotlib → PDF + SVG):
-    3. bertopic_barchart_e5.pdf / .svg            – Top-9 topics bar chart
-    4. bertopic_intertopic_map_e5.pdf / .svg       – Intertopic distance map
-
-  Design Principles:
-    • Square 10×10 canvas, vector output (PDF/SVG)
-    • Courier New monospace font at 22pt base size
-    • Subtle grids (lw ≤ 0.5, alpha ≤ 0.2)
-    • Custom purple/teal hex palette (no default colors)
-    • Large markers (s=90+), thick lines (lw=2.6)
-    • Explicit z-order layering
-    • External frameless legend
-"""
 
 import os
 import json
 import numpy as np
-# pyrefly: ignore [missing-import]
 from bertopic import BERTopic
-# pyrefly: ignore [missing-import]
 from umap import UMAP
 import math
 import matplotlib
-matplotlib.use('Agg')  # Non-interactive backend for headless rendering
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import matplotlib.gridspec as gridspec
 from matplotlib.patches import FancyBboxPatch
 
-# ── Paths ──────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
 MODEL_DIR = os.path.join(RESULTS_DIR, "bertopic_model")
@@ -48,15 +23,11 @@ print("=" * 70)
 topic_model = BERTopic.load(MODEL_DIR)
 topic_info = topic_model.get_topic_info()
 
-# Exclude the noise topic (-1)
 valid_topics = topic_info[topic_info['Topic'] != -1].sort_values('Count', ascending=False)
 total_topics = len(valid_topics)
 
 print(f"Loaded model with {total_topics} topics (excluding noise).")
 
-# =====================================================================
-# 1. EXTRACT BARCHART DATA
-# =====================================================================
 print("\nExtracting topic word data for barchart...")
 
 barchart_data = []
@@ -72,23 +43,15 @@ for _, row in valid_topics.iterrows():
             'scores': [float(s) for w, s in words_scores]
         })
 
-# =====================================================================
-# 2. EXTRACT INTERTOPIC DISTANCE MAP DATA
-# =====================================================================
 print("Extracting topic embedding data for intertopic map...")
 
-# Get topic embeddings and reduce to 2D
 topic_embeddings = topic_model.topic_embeddings_
 
-# BERTopic stores embeddings indexed as: row 0 = topic -1 (outlier),
-# row 1 = topic 0, row 2 = topic 1, etc. We need to map correctly.
 all_topic_ids = sorted(topic_model.get_topic_info()['Topic'].tolist())
 
-# Reduce to 2D for visualization
 umap_2d = UMAP(n_components=2, random_state=42)
 embeddings_2d = umap_2d.fit_transform(topic_embeddings)
 
-# Build a lookup: topic_id -> index in the embeddings array
 topic_id_to_idx = {tid: i for i, tid in enumerate(all_topic_ids)}
 
 intertopic_data = []
@@ -106,9 +69,6 @@ for _, row in valid_topics.iterrows():
         'top_words': label_words
     })
 
-# =====================================================================
-# 3. GENERATE INTERACTIVE BARCHART HTML
-# =====================================================================
 print("\nGenerating interactive barchart HTML...")
 
 barchart_html = f"""<!DOCTYPE html>
@@ -294,9 +254,6 @@ with open(barchart_path, 'w', encoding='utf-8') as f:
     f.write(barchart_html)
 print(f"  → {barchart_path}")
 
-# =====================================================================
-# 4. GENERATE INTERACTIVE INTERTOPIC DISTANCE MAP HTML
-# =====================================================================
 print("Generating interactive intertopic distance map HTML...")
 
 intertopic_html = f"""<!DOCTYPE html>
@@ -491,34 +448,25 @@ with open(intertopic_path, 'w', encoding='utf-8') as f:
     f.write(intertopic_html)
 print(f"  → {intertopic_path}")
 
-# =====================================================================
-# PUBLICATION-QUALITY FIGURE CONFIGURATION (Matplotlib)
-# =====================================================================
-# All rcParams are set once here so every figure produced is uniform.
 
-# ── Custom Hex Colour Palette ─────────────────────────────────────────
-# Avoids default matplotlib colours and red/green dualism.
 TOPIC_COLORS = [
-    '#6C5CE7',  # muted iris purple
-    '#00B894',  # soft teal
-    '#A29BFE',  # lavender
-    '#55EFC4',  # mint
-    '#74B9FF',  # sky blue
-    '#FDCB6E',  # warm gold
-    '#E17055',  # burnt sienna
-    '#00CEC9',  # turquoise
-    '#B8E994',  # pistachio
-    '#D980FA',  # heliotrope
-    '#7ED6DF',  # powder blue
-    '#FDA7DF',  # pink lavender
+    '#6C5CE7',
+    '#00B894',
+    '#A29BFE',
+    '#55EFC4',
+    '#74B9FF',
+    '#FDCB6E',
+    '#E17055',
+    '#00CEC9',
+    '#B8E994',
+    '#D980FA',
+    '#7ED6DF',
+    '#FDA7DF',
 ]
-COLOR_NEUTRAL = '#B2BEC3'   # warm gray – secondary / regression lines
-COLOR_TEXT    = '#2D3436'   # near-black – axis labels, titles
+COLOR_NEUTRAL = '#B2BEC3'
+COLOR_TEXT    = '#2D3436'
 
-# ── Global rcParams ───────────────────────────────────────────────────
 plt.rcParams.update({
-    # Typography – Courier New at a large base size so the text stays
-    # readable when the figure is shrunk to two-column journal width.
     'font.family':       'monospace',
     'font.monospace':    ['Courier New', 'DejaVu Sans Mono', 'monospace'],
     'font.size':         22,
@@ -528,28 +476,24 @@ plt.rcParams.update({
     'ytick.labelsize':   18,
     'legend.fontsize':   16,
 
-    # Canvas
     'figure.figsize':    (10, 10),
     'figure.dpi':        150,
     'savefig.dpi':       300,
     'savefig.bbox':      'tight',
     'savefig.pad_inches': 0.15,
 
-    # Grids – subtle and unobtrusive
     'axes.grid':         True,
     'grid.linewidth':    0.5,
     'grid.alpha':        0.20,
     'grid.color':        '#DFE6E9',
     'grid.linestyle':    '--',
 
-    # Axes / spines
     'axes.spines.top':    False,
     'axes.spines.right':  False,
     'axes.edgecolor':     '#4a4a4a',
     'axes.linewidth':     0.8,
     'axes.facecolor':     '#FFFFFF',
 
-    # Ticks
     'xtick.direction':   'out',
     'ytick.direction':   'out',
     'xtick.major.width': 0.6,
@@ -557,26 +501,17 @@ plt.rcParams.update({
     'xtick.color':       '#4a4a4a',
     'ytick.color':       '#4a4a4a',
 
-    # Figure background
     'figure.facecolor':  '#FFFFFF',
 })
 
 
-# =====================================================================
-# 5. GENERATE PUBLICATION-QUALITY BARCHART (Matplotlib)
-# =====================================================================
 print("\nGenerating publication-quality barchart (Matplotlib)...")
 
 
 def generate_publication_barchart(data, top_n=9, save_dir=RESULTS_DIR):
-    """
-    Render a 3×3 grid of horizontal bar charts showing the top words
-    for the `top_n` largest topics.  Saves PDF + SVG.
-    """
     topics = data[:top_n]
-    n_words = 10  # words per subplot
+    n_words = 10
 
-    # Determine grid dimensions (square-ish)
     ncols = 3
     nrows = math.ceil(top_n / ncols)
 
@@ -599,7 +534,7 @@ def generate_publication_barchart(data, top_n=9, save_dir=RESULTS_DIR):
         row, col = divmod(idx, ncols)
         ax = fig.add_subplot(gs[row, col])
 
-        words  = topic['words'][:n_words][::-1]   # reverse so highest is on top
+        words  = topic['words'][:n_words][::-1]
         scores = topic['scores'][:n_words][::-1]
         color  = TOPIC_COLORS[idx % len(TOPIC_COLORS)]
 
@@ -617,28 +552,23 @@ def generate_publication_barchart(data, top_n=9, save_dir=RESULTS_DIR):
             pad=6
         )
 
-        # Subtle vertical grid only
         ax.xaxis.grid(True, linewidth=0.4, alpha=0.18, zorder=0)
         ax.yaxis.grid(False)
         ax.set_axisbelow(True)
 
-        # Remove x-axis tick labels (scores are self-evident from bar length)
         ax.set_xticklabels([])
         ax.tick_params(axis='x', length=0)
 
-        # Light spines
         for spine in ('top', 'right', 'bottom'):
             ax.spines[spine].set_visible(False)
         ax.spines['left'].set_color('#CCCCCC')
         ax.spines['left'].set_linewidth(0.5)
 
-    # Hide any unused subplot cells
     for idx in range(len(topics), nrows * ncols):
         row, col = divmod(idx, ncols)
         ax = fig.add_subplot(gs[row, col])
         ax.set_visible(False)
 
-    # Save as vector graphics
     for ext in ('pdf', 'svg'):
         out_path = os.path.join(save_dir, f'bertopic_barchart_e5.{ext}')
         fig.savefig(out_path, format=ext)
@@ -650,43 +580,31 @@ def generate_publication_barchart(data, top_n=9, save_dir=RESULTS_DIR):
 generate_publication_barchart(barchart_data, top_n=9, save_dir=RESULTS_DIR)
 
 
-# =====================================================================
-# 6. GENERATE PUBLICATION-QUALITY INTERTOPIC MAP (Matplotlib)
-# =====================================================================
 print("\nGenerating publication-quality intertopic map (Matplotlib)...")
 
 
 def generate_publication_intertopic_map(data, save_dir=RESULTS_DIR):
-    """
-    Scatter plot of topic embeddings (UMAP 2-D) with bubble size
-    proportional to document count.  Saves PDF + SVG.
-    """
     xs = np.array([d['x'] for d in data])
     ys = np.array([d['y'] for d in data])
     counts = np.array([d['count'] for d in data])
     topic_ids = [d['topic_id'] for d in data]
 
-    # ── Tight, median-centred bounding box ────────────────────────────
     med_x, med_y = np.median(xs), np.median(ys)
     dev_x = np.max(np.abs(xs - med_x))
     dev_y = np.max(np.abs(ys - med_y))
-    max_dev = max(dev_x, dev_y) * 1.15          # 15 % breathing room
+    max_dev = max(dev_x, dev_y) * 1.15
     xlim = (med_x - max_dev, med_x + max_dev)
     ylim = (med_y - max_dev, med_y + max_dev)
 
-    # ── Marker sizes: scale counts to [300, 1200] ─────────────────────
     min_c, max_c = counts.min(), counts.max()
     rng = max_c - min_c if max_c != min_c else 1
     sizes = 300 + (counts - min_c) / rng * 900
 
-    # ── Colours (cycle through palette) ───────────────────────────────
     colors = [TOPIC_COLORS[i % len(TOPIC_COLORS)] for i in range(len(data))]
 
-    # ── Figure ────────────────────────────────────────────────────────
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.set_aspect('equal', adjustable='datalim')
 
-    # Major + minor grids
     ax.grid(which='major', linewidth=0.5,  alpha=0.20, color='#DFE6E9',
             linestyle='--', zorder=0)
     ax.minorticks_on()
@@ -694,7 +612,6 @@ def generate_publication_intertopic_map(data, save_dir=RESULTS_DIR):
             linestyle=':', zorder=0)
     ax.set_axisbelow(True)
 
-    # Scatter – primary data layer
     scatter = ax.scatter(
         xs, ys,
         s=sizes,
@@ -705,7 +622,6 @@ def generate_publication_intertopic_map(data, save_dir=RESULTS_DIR):
         zorder=3
     )
 
-    # Annotate each bubble with its topic ID
     for i, tid in enumerate(topic_ids):
         ax.annotate(
             str(tid),
@@ -716,7 +632,6 @@ def generate_publication_intertopic_map(data, save_dir=RESULTS_DIR):
             zorder=4
         )
 
-    # ── Axes limits & labels ──────────────────────────────────────────
     ax.set_xlim(xlim)
     ax.set_ylim(ylim)
     ax.set_xlabel('UMAP Dimension 1', fontsize=22, color=COLOR_TEXT, labelpad=10)
@@ -724,7 +639,6 @@ def generate_publication_intertopic_map(data, save_dir=RESULTS_DIR):
 
 
 
-    # ── Save vector outputs ───────────────────────────────────────────
     for ext in ('pdf', 'svg'):
         out_path = os.path.join(save_dir, f'bertopic_intertopic_map_e5.{ext}')
         fig.savefig(out_path, format=ext)

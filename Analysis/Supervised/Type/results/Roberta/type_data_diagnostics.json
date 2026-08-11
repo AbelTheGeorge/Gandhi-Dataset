@@ -1,0 +1,25 @@
+{
+  "documents_total": 45458,
+  "documents_empty_contents": 0,
+  "documents_unrecognised_type": 0,
+  "documents_usable": 45458,
+  "class_counts": {
+    "ARTICLE": 6748,
+    "LETTER": 30076,
+    "PROSE": 1596,
+    "TELEGRAM": 2361,
+    "TRANSCRIPT": 4677
+  },
+  "labels_rule_derivable": 35468,
+  "labels_rule_derivable_pct": 78.02367020106472,
+  "labels_rule_agreement_pct": 98.83557009134995,
+  "labels_llm_assigned": 9990,
+  "labels_llm_assigned_pct": 21.976329798935282,
+  "llm_subset_class_counts": {
+    "ARTICLE": 6628,
+    "LETTER": 1562,
+    "PROSE": 1304,
+    "TRANSCRIPT": 365,
+    "TELEGRAM": 131
+  }
+}

@@ -1,0 +1,88 @@
+CWMG BERTopic - macro-cluster derivation
+======================================================================
+Method            : Ward agglomerative clustering on L2-normalised
+                    BERTopic topic embeddings (57 x 768)
+Clusters (k)      : 3
+Total chunks      : 76,411
+Clustered chunks  : 35,178 (46.0%)
+Outlier chunks    : 41,233 (54.0%)
+Topics discovered : 57
+Topics plotted    : 40 largest
+
+Silhouette (cosine) by k:
+  k=2: 0.268
+  k=3: 0.169
+  k=4: 0.187
+  k=5: 0.193
+  k=6: 0.137
+
+Table 5 topics (0-12): 23,688 chunks (31.0% of all chunks, 67.3% of clustered chunks)
+
+----------------------------------------------------------------------
+CLUSTER 1: Religion, communal relations and social reform
+  12 topics (9 shown on the map), 5,158 chunks (6.8% of all chunks, 14.7% of clustered)
+    T3     1757  harijans, untouchability, hindus, caste, harijan, temples, temple, untouchables
+    T10     717  muslims, pakistan, hindus, sikhs, muslim, hindus sikhs, refugees, delhi
+    T12     697  thou, god, thy, krishna, man, arjuna, body, karma
+    T25     324  hindus, mussalmans, hindu, mussalman, muslim, islam, muslims, khilafat
+    T26     317  non, non operation, operation, violence, operators, non operators, government, violent
+    T28     298  ahimsa, dogs, himsa, violence, life, man, monkeys, snake
+    T31     255  violence, non violence, non, violent, non violent, congress, world, faith
+    T33     223  jesus, christian, christianity, religion, god, religions, christians, christ
+    T34     206  widows, widow, marriage, girl, child, girls, young, married
+    T41     159  sexual, control, birth control, birth, contraceptives, marriage, artificial, methods
+    T53     105  untouchability, temple, untouchables, caste, entry, temple entry, temples, shastras
+    T56     100  fast, fasting, fasts, voice, god, inner, inner voice, undertaken
+
+----------------------------------------------------------------------
+CLUSTER 2: Political work and the constructive programme
+  25 topics (15 shown on the map), 19,067 chunks (25.0% of all chunks, 54.2% of clustered)
+    T0     8011  indians, transvaal, british, government, south, natal, africa, south africa
+    T1     3905  khadi, spinning, cloth, yarn, wheel, foreign, spinning wheel, india
+    T7      829  hindi, language, english, urdu, hindustani, script, languages, navajivan
+    T8      803  education, students, schools, teachers, school, national, vidyapith, children
+    T9      737  india, british, britain, war, congress, non, independence, japanese
+    T11     705  milk, diet, fruit, food, water, vegetables, eat, salt
+    T18     419  mahatmaji, swaraj, khaddar, charkha, country, foreign, cloth, india
+    T20     411  gandhiji, muslims, prayer, muslim, hindus, god, noakhali, bengal
+    T23     336  cow, cattle, cow protection, protection, cows, milk, slaughter, buffalo
+    T24     334  drink, prohibition, liquor, opium, revenue, drinking, habit, evil
+    T27     303  evidence, martial, statement, martial law, punjab, singh, lahore, police
+    T30     283  government, prison, government bombay, home department, yeravda, department, bombay, yeravda central
+    T32     231  deshbandhu, great, india, life, gokhale, country, death, service
+    T36     191  thakore saheb, thakore, prisoners, rajkot, saheb, hunger, hunger strike, award
+    T38     178  workers, owners, employers, labour, wages, strike, labourers, increase
+    T40     171  lower house, house, lower, upper house, upper, farm, mrs, albrecht
+    T42     159  bardoli, government, vallabhbhai, revenue, pathans, satyagrahis, assessment, satyagraha
+    T43     156  satyagraha, satyagrahi, movement, satyagrahis, disobedience, laws, rowlatt, civil
+    T44     154  chhaganlal, gujarati, johannesburg, hemchand, west, kalyandas, copies, phoenix
+    T45     153  raiyats, planters, indigo, sharahbeshi, committee, president, enhancement, tawan
+    T47     143  passengers, class, deck, passenger, railway, travelling, class passengers, 3rd class
+    T48     135  gandhiji, harijans, harijan, untouchability, hindus, women, caste, workers
+    T49     115  memorial, fund, deshbandhu, bengal, lakhs, collection, deshbandhu memorial, collect
+    T52     105  salt, tax, salt tax, government, poor, manufacture, monopoly, manufacture salt
+    T55     100  wheel, spinning, yarn, spinning wheel, rounds, spin, speed, slivers
+
+----------------------------------------------------------------------
+CLUSTER 3: Personal correspondence
+  20 topics (16 shown on the map), 10,953 chunks (14.3% of all chunks, 31.1% of clustered)
+    T2     2003  satyagraha, bhaishri, khadi, young india, young, india, babu, bombay
+    T4     1360  handwriting, don, narandas, news, god, gangabehn, regularly, mira
+    T5     1092  mahabaleshwar, delhi, new delhi, poona, new, bombay, panchgani, road
+    T6     1072  amrit, bombay, course, god, delhi, don, yesterday, sushila
+    T13     686  bombay, instant, road, street, rao, opinion, book, post
+    T14     607  narandas, chhaganlal, don, mahadev, certainly, yesterday, devdas, necessary
+    T15     574  kanti, amtul, amtul salaam, salaam, mahadev, saraswati, prabha, don
+    T16     564  faith, god, cause, violence, world, life, duty, way
+    T17     456  yeravda mandir, yeravda, mandir, handwriting, don, god, mandir 27, kakasaheb
+    T19     411  wire, wardhaganj, bombay, delhi, ahmedabad, rajkot, birla, allahabad
+    T21     409  wire, condolences, conference, delhi, god, andhi, success, attend
+    T22     402  god, return, don, things, worry, mira, mind, course
+    T29     289  silence, sisters, women, gangabehn, chhaganlal, kitchen, worry, silence sisters
+    T35     206  idiot, tyrant, rebel, shummy, robber, mahadev, yesterday, mira
+    T37     185  sushila, pyarelal, sushila nayyar, nayyar, nayyar new, yesterday, delhi, new delhi
+    T39     172  gandhiji, 13, radhakrishnan, saheb, pyarelal, fast, 28, road
+    T46     144  saheb, new delhi, delhi, new, holmes, road, nawab saheb, nawab
+    T50     114  delhi, new delhi, new, poona, road, care, bombay, calcutta
+    T51     106  bapa, thakkar bapa, thakkar, ganesan, harijan, parikshitlal, malkani, money
+    T54     101  bangalore, kumara park, kumara, park bangalore, park, mysore, jamnalalji, council

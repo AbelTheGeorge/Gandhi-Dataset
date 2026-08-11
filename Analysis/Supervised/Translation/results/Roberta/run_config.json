@@ -1,0 +1,21 @@
+{
+  "condition": "raw",
+  "seed": 42,
+  "model": "roberta-base",
+  "max_length": 512,
+  "batch_size": 64,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "max_epochs": 25,
+  "warmup_ratio": 0.1,
+  "patience": 5,
+  "split": "80/10/10 stratified",
+  "n_train": 36366,
+  "n_val": 4546,
+  "n_test": 4546,
+  "pct_documents_truncated": 20.245893625342198,
+  "class_weights": {
+    "Translated": 1.9459052577065545,
+    "Original English": 0.7589912199962712
+  }
+}

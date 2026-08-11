@@ -1,0 +1,20 @@
+{
+  "documents_total": 45458,
+  "documents_unknown_language": 0,
+  "documents_empty_contents": 0,
+  "documents_usable": 45458,
+  "class_counts": {
+    "Translated": 6003,
+    "Original English": 39455
+  },
+  "translated_source_languages": {
+    "Gujarati": 5054,
+    "Hindi": 925,
+    "Urdu": 18,
+    "Marathi": 2,
+    "Tamil": 1,
+    "Bengali": 1,
+    "Oriya": 1,
+    "French": 1
+  }
+}

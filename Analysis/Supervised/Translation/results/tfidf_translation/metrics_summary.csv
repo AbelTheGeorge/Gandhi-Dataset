@@ -1,0 +1,3 @@
+model,run,condition,test_accuracy,test_macro_f1,test_weighted_f1,n_train,n_test
+Majority class,majority,-,0.8677958644962604,0.4646095866211283,0.8063725557502645,36366,4546
+TF-IDF + LogisticRegression,raw,raw,0.9390673119225693,0.8543559949558335,0.9360619782084336,36366,4546

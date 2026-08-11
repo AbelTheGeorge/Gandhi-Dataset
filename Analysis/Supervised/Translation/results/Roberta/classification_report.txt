@@ -1,0 +1,10 @@
+Condition: raw
+
+                  precision    recall  f1-score   support
+
+      Translated     0.8111    0.8719    0.8404       601
+Original English     0.9803    0.9691    0.9746      3945
+
+        accuracy                         0.9562      4546
+       macro avg     0.8957    0.9205    0.9075      4546
+    weighted avg     0.9579    0.9562    0.9569      4546

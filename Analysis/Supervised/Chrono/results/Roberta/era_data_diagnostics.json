@@ -1,0 +1,28 @@
+{
+  "documents_total": 45458,
+  "documents_missing_date": 317,
+  "documents_unparsed_date": 0,
+  "documents_out_of_range_year": 0,
+  "documents_empty_contents": 0,
+  "documents_usable": 45141,
+  "date_resolution_counts": {
+    "day": 44875,
+    "missing": 317,
+    "year": 150,
+    "month": 116
+  },
+  "date_qualifier_counts": {
+    "None": 43706,
+    "ON OR BEFORE": 1240,
+    "ON OR AFTER": 423,
+    "ON OR AROUND": 89
+  },
+  "leakage_probe": {
+    "documents_with_any_year": 34846,
+    "documents_with_true_year": 33657,
+    "fraction_with_true_year": 0.7455971289958131,
+    "regex_probe_coverage": 0.7681708424713675,
+    "regex_probe_accuracy_on_covered": 0.979611258507325,
+    "regex_probe_accuracy_overall": 0.7525088057420084
+  }
+}

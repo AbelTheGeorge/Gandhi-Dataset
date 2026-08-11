@@ -1,0 +1,13 @@
+Condition: raw
+
+              precision    recall  f1-score   support
+
+     ARTICLE     0.9004    0.9244    0.9123       675
+      LETTER     0.9918    0.9704    0.9810      3008
+       PROSE     0.5345    0.5813    0.5569       160
+    TELEGRAM     0.9703    0.9703    0.9703       236
+  TRANSCRIPT     0.8940    0.9572    0.9245       467
+
+    accuracy                         0.9485      4546
+   macro avg     0.8582    0.8807    0.8690      4546
+weighted avg     0.9510    0.9485    0.9495      4546

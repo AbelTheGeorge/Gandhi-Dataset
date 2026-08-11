@@ -1,0 +1,24 @@
+{
+  "condition": "masked",
+  "seed": 43,
+  "model": "roberta-base",
+  "max_length": 512,
+  "batch_size": 64,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "max_epochs": 25,
+  "warmup_ratio": 0.1,
+  "patience": 10,
+  "split": "80/10/10 stratified",
+  "n_train": 36112,
+  "n_val": 4514,
+  "n_test": 4515,
+  "pct_documents_truncated": 20.481453220764518,
+  "class_weights": {
+    "1884-1914 (South Africa)": 1.4144485921887011,
+    "1915-1924 (Emergence)": 1.397895759387142,
+    "1925-1934 (Civil Disobedience)": 0.7200025520738258,
+    "1935-1944 (Wardha Era)": 0.9048096878896827,
+    "1945-1948 (Independence)": 1.0924241917281197
+  }
+}

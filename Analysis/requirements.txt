@@ -1,0 +1,18 @@
+# Python 3.13.1
+
+numpy==2.4.4
+pandas==3.0.3
+scikit-learn==1.8.0
+
+# torch was installed as the CUDA 12.x build (2.12.0+cu132); install the
+# matching GPU wheel from https://pytorch.org for CUDA support.
+torch==2.12.0
+transformers==5.8.1
+
+bertopic==0.17.4
+sentence-transformers==5.5.0
+umap-learn==0.5.12
+hdbscan==0.8.43
+
+matplotlib==3.10.9
+seaborn==0.13.2

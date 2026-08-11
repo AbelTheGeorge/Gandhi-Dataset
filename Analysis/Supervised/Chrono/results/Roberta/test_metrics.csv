@@ -1,0 +1,2 @@
+condition,test_loss,test_accuracy,test_macro_f1,test_weighted_f1,best_val_macro_f1,epochs_run
+masked,1.4638320686111987,0.8259136212624585,0.8291994829808729,0.8252572450988346,0.8374107634280241,25
