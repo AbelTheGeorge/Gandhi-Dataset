@@ -10,14 +10,19 @@ A structured JSON dataset of the *Collected Works of Mahatma Gandhi*, extracted 
 | Total documents | 45,458 |
 | Format | Structured JSON |
 | Character count | 88,394,471 |
-| Token count (NLTK) | 18,419,112 |
-| Token count (BPE, tiktoken) | 21,094,055 |
+| Word count | 15,713,477 |
+| Token count (NLTK) | 17,925,599 |
+| Token count (BPE, tiktoken) | 20,436,331 |
 | Time period | 1884 – 1948 |
 | Document types | 5 |
 | Original languages | 9 |
 | Documents with an identifiable date | 45,141 (99.3%) |
 
-Documents range from 9 to 958,739 characters, with a median of 740 and a mean of 1,759. Sentences run from 2 to 422 words, median 13, mean 15.9. Mean Flesch-Kincaid grade level is 7.01.
+Counts above cover the `contents`, `title`, `source`, and `footnotes` fields. The `contents` field alone holds 79,976,031 characters and 16,268,005 NLTK tokens.
+
+Documents range from 9 to 958,739 characters, with a median of 740 and a mean of 1,759. The distribution is strongly right-skewed: 77% of documents are under 2,000 characters, while the longest 1,000 hold 22.7% of all characters. Sentences run from 1 to 488 words, median 13, mean 16.0. Mean Flesch-Kincaid grade level is 7.03, median 6.38.
+
+The text holds 14,352,960 alphabetic word tokens and 78,599 distinct word types. Because the type-token ratio falls as text length grows, lexical diversity is reported as the moving-average type-token ratio over a 500-token window, which is 48.74%.
 
 ## Dataset Structure
 
@@ -56,7 +61,7 @@ The dataset is a single JSON file containing a list of objects, each representin
 | `contents` | String | The main body of the text. Footnote references are embedded inline as `{1}`, `{2}`, and so on. |
 | `footnotes` | Object | Maps each renumbered marker to its editorial note. Footnote numbering restarts on every page in the source; markers here are renumbered to be unique within each document. |
 | `original_language` | String | The language in which the document was originally composed. All non-English documents appear here only in the English translation supplied by the print volumes. |
-| `source` | String | Where the CWMG project obtained the original document. 6,224 documents have a missing or unknown source. Abbreviations are explained below. |
+| `source` | String | Where the CWMG project obtained the original document. 225 documents have an empty or unusable source field. Abbreviations are explained below. |
 
 ## Data Distribution
 
@@ -99,7 +104,7 @@ This classification is reliable for clear-cut categories but imperfect at the bo
 
 ## `document_date` conventions
 
-Dates are drawn from the consolidated contents PDF and from document headers, then normalized to zero-padded numerals. Of the dated documents, 95.55% resolve to an exact day, 0.34% to a year alone, and 0.23% to a month.
+Dates are drawn from the consolidated contents PDF and from document headers, then normalized to zero-padded numerals. Of the dated documents, 95.55% resolve to an exact day, 0.33% to a year alone, and 0.23% to a month.
 
 Where the source records uncertainty, a prefix is attached to the normalized string rather than discarding the ambiguity:
 
