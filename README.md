@@ -69,9 +69,9 @@ The dataset is a single JSON file containing a list of objects, each representin
 
 | Category | Count | Category | Count |
 | :--- | ---: | :--- | ---: |
-| LETTER | 30,077 | ARTICLE | 6,748 |
-| TRANSCRIPT | 4,677 | TELEGRAM | 2,360 |
-| PROSE | 1,596 | | |
+| LETTER | 29,878 | ARTICLE | 6,881 |
+| TRANSCRIPT | 4,736 | TELEGRAM | 2,303 |
+| PROSE | 1,660 | | |
 
 Letters account for roughly 66% of the corpus.
 
@@ -95,12 +95,14 @@ The five categories classify documents by communicative function:
 - **TELEGRAM** — cables and similar brief, formal communications
 - **PROSE** — a residual category for texts that fit none of the above
 
-Assignment is hybrid:
+Gandhi's writings span a wide range of forms and states of completeness, so sorting them into fixed categories is difficult. We therefore reserve LETTER, ARTICLE, TRANSCRIPT and TELEGRAM for documents whose type is clear, and assign everything else to PROSE by default. PROSE is the smallest category, but also the most mixed.
 
-1. Titles that state the type, such as those beginning with "LETTER TO" or "CABLE TO", are handled by deterministic rules.
-2. Remaining titles are passed to an open-source reasoning model (DeepSeek V4 Flash, via the LangChain framework), which reads the title and full text to infer the category.
+Labels were assigned in two stages:
 
-This classification is reliable for clear-cut categories but imperfect at the boundaries, and PROSE in particular is heterogeneous by construction. Use with care if your research depends on exact genre labels.
+1. **Rules.** An ordered set of deterministic rules reads each document's title, source, contents and footnotes: for example, a title beginning "LETTER TO" or "CABLE TO", a salutation and signature, a third-person report of a speech, or publication in one of Gandhi's own periodicals. These rules label 45,013 documents.
+2. **Manual review.** The remaining 445 documents, where no rule applied or the evidence conflicted, were read and labelled by hand.
+
+Readers should bear this in mind when using the dataset: the labels are reliable for clear-cut documents but less certain at the boundaries between categories. Contributions toward a more detailed classification scheme are welcome.
 
 ## `document_date` conventions
 
