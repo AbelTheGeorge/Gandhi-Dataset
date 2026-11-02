@@ -1,0 +1,94 @@
+{
+  "data_path": "The-Collected-Works-Mahatma-Gandhi.json",
+  "n_documents": 45458,
+  "vectorizer": {
+    "lowercase": true,
+    "sublinear_tf": true,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 3,
+    "max_features": 300000,
+    "strip_accents": "unicode",
+    "token_pattern": "(?u)\\b\\w[\\w<>]*\\b"
+  },
+  "logistic_regression": {
+    "C": 1.0,
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "penalty": "l2 (default)",
+    "fit_intercept": true,
+    "class_weight": "sqrt(n_train / (n_classes * count_k))",
+    "multiclass": "one-vs-rest (liblinear), argmax of decision scores"
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "val_split_used": false,
+  "versions": {
+    "python": "3.12.4",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0"
+  },
+  "checks": {
+    "era": {
+      "volume_section_match": {
+        "rows": 45160,
+        "volume_mismatches": 0,
+        "section_mismatches": 0
+      },
+      "doc_id_unique": true,
+      "same_document_set_as_split_csv": true,
+      "label_mismatches_vs_rebuilt": 0,
+      "text_mismatches_vs_clean_text": 0,
+      "empty_texts": 0,
+      "test_ids_match_modernbert_predictions": true,
+      "split_sizes": {
+        "train": 36128,
+        "val": 4516,
+        "test": 4516
+      }
+    },
+    "translation": {
+      "volume_section_match": {
+        "rows": 45458,
+        "volume_mismatches": 0,
+        "section_mismatches": 0
+      },
+      "doc_id_unique": true,
+      "same_document_set_as_split_csv": true,
+      "label_mismatches_vs_rebuilt": 0,
+      "text_mismatches_vs_clean_text": 0,
+      "empty_texts": 0,
+      "test_ids_match_modernbert_predictions": true,
+      "split_sizes": {
+        "train": 36366,
+        "val": 4546,
+        "test": 4546
+      }
+    },
+    "type": {
+      "volume_section_match": {
+        "rows": 45458,
+        "volume_mismatches": 0,
+        "section_mismatches": 0
+      },
+      "doc_id_unique": true,
+      "same_document_set_as_split_csv": true,
+      "label_mismatches_vs_rebuilt": 0,
+      "text_mismatches_vs_clean_text": 0,
+      "empty_texts": 0,
+      "test_ids_match_modernbert_predictions": true,
+      "split_sizes": {
+        "train": 36366,
+        "val": 4546,
+        "test": 4546
+      }
+    }
+  }
+}

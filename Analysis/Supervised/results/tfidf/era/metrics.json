@@ -1,0 +1,162 @@
+{
+  "task": "era",
+  "text_condition": "masked",
+  "class_names": [
+    "1884-1914 (South Africa)",
+    "1915-1924 (Emergence)",
+    "1925-1934 (Civil Disobedience)",
+    "1935-1944 (Wardha Era)",
+    "1945-1948 (Independence)"
+  ],
+  "n_train": 36128,
+  "n_test": 4516,
+  "n_features": 300000,
+  "class_weights": {
+    "1884-1914 (South Africa)": 1.4151539682593783,
+    "1915-1924 (Emergence)": 1.3965061473918057,
+    "1925-1934 (Civil Disobedience)": 0.7200070151600978,
+    "1935-1944 (Wardha Era)": 0.9049075427493964,
+    "1945-1948 (Independence)": 1.0925759109838473
+  },
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "deterministic_across_seeds": true,
+  "test_macro_f1_mean": 0.8107365429329368,
+  "test_macro_f1_std": 1.3597399555105182e-16,
+  "test_accuracy_mean": 0.8113374667847651,
+  "test_accuracy_std": 1.3597399555105182e-16,
+  "per_seed": {
+    "42": {
+      "macro_f1": 0.810736542932937,
+      "weighted_f1": 0.8096283664239119,
+      "accuracy": 0.8113374667847653,
+      "per_class": {
+        "1884-1914 (South Africa)": {
+          "precision": 0.9210526315789473,
+          "recall": 0.9312638580931264,
+          "f1": 0.9261300992282249,
+          "support": 451
+        },
+        "1915-1924 (Emergence)": {
+          "precision": 0.7898550724637681,
+          "recall": 0.7062634989200864,
+          "f1": 0.7457240592930444,
+          "support": 463
+        },
+        "1925-1934 (Civil Disobedience)": {
+          "precision": 0.7936344969199178,
+          "recall": 0.8874856486796785,
+          "f1": 0.8379403794037941,
+          "support": 1742
+        },
+        "1935-1944 (Wardha Era)": {
+          "precision": 0.7892204042348412,
+          "recall": 0.743427017225748,
+          "f1": 0.765639589169001,
+          "support": 1103
+        },
+        "1945-1948 (Independence)": {
+          "precision": 0.8361153262518968,
+          "recall": 0.7278731836195509,
+          "f1": 0.7782485875706214,
+          "support": 757
+        }
+      }
+    },
+    "43": {
+      "macro_f1": 0.810736542932937,
+      "weighted_f1": 0.8096283664239119,
+      "accuracy": 0.8113374667847653,
+      "per_class": {
+        "1884-1914 (South Africa)": {
+          "precision": 0.9210526315789473,
+          "recall": 0.9312638580931264,
+          "f1": 0.9261300992282249,
+          "support": 451
+        },
+        "1915-1924 (Emergence)": {
+          "precision": 0.7898550724637681,
+          "recall": 0.7062634989200864,
+          "f1": 0.7457240592930444,
+          "support": 463
+        },
+        "1925-1934 (Civil Disobedience)": {
+          "precision": 0.7936344969199178,
+          "recall": 0.8874856486796785,
+          "f1": 0.8379403794037941,
+          "support": 1742
+        },
+        "1935-1944 (Wardha Era)": {
+          "precision": 0.7892204042348412,
+          "recall": 0.743427017225748,
+          "f1": 0.765639589169001,
+          "support": 1103
+        },
+        "1945-1948 (Independence)": {
+          "precision": 0.8361153262518968,
+          "recall": 0.7278731836195509,
+          "f1": 0.7782485875706214,
+          "support": 757
+        }
+      }
+    },
+    "44": {
+      "macro_f1": 0.810736542932937,
+      "weighted_f1": 0.8096283664239119,
+      "accuracy": 0.8113374667847653,
+      "per_class": {
+        "1884-1914 (South Africa)": {
+          "precision": 0.9210526315789473,
+          "recall": 0.9312638580931264,
+          "f1": 0.9261300992282249,
+          "support": 451
+        },
+        "1915-1924 (Emergence)": {
+          "precision": 0.7898550724637681,
+          "recall": 0.7062634989200864,
+          "f1": 0.7457240592930444,
+          "support": 463
+        },
+        "1925-1934 (Civil Disobedience)": {
+          "precision": 0.7936344969199178,
+          "recall": 0.8874856486796785,
+          "f1": 0.8379403794037941,
+          "support": 1742
+        },
+        "1935-1944 (Wardha Era)": {
+          "precision": 0.7892204042348412,
+          "recall": 0.743427017225748,
+          "f1": 0.765639589169001,
+          "support": 1103
+        },
+        "1945-1948 (Independence)": {
+          "precision": 0.8361153262518968,
+          "recall": 0.7278731836195509,
+          "f1": 0.7782485875706214,
+          "support": 757
+        }
+      }
+    }
+  },
+  "checks": {
+    "volume_section_match": {
+      "rows": 45160,
+      "volume_mismatches": 0,
+      "section_mismatches": 0
+    },
+    "doc_id_unique": true,
+    "same_document_set_as_split_csv": true,
+    "label_mismatches_vs_rebuilt": 0,
+    "text_mismatches_vs_clean_text": 0,
+    "empty_texts": 0,
+    "test_ids_match_modernbert_predictions": true,
+    "split_sizes": {
+      "train": 36128,
+      "val": 4516,
+      "test": 4516
+    }
+  }
+}

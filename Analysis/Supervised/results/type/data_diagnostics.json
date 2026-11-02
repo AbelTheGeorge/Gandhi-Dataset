@@ -1,0 +1,21 @@
+{
+  "documents_total": 45458,
+  "documents_empty_contents": 0,
+  "documents_unrecognised_type": 0,
+  "unrecognised_type_values": {},
+  "documents_usable": 45458,
+  "class_counts": {
+    "ARTICLE": 6877,
+    "LETTER": 29875,
+    "PROSE": 1668,
+    "TELEGRAM": 2303,
+    "TRANSCRIPT": 4735
+  },
+  "token_stats": {
+    "median": 185.0,
+    "p95": 1369.0,
+    "max": 217268,
+    "docs_over_510": 9339,
+    "docs_over_max_length": 39
+  }
+}

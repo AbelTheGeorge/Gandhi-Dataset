@@ -1,0 +1,11 @@
+                                precision    recall  f1-score   support
+
+      1884-1914 (South Africa)     0.9515    0.9579    0.9547       451
+         1915-1924 (Emergence)     0.8426    0.7862    0.8134       463
+1925-1934 (Civil Disobedience)     0.8400    0.8984    0.8682      1742
+        1935-1944 (Wardha Era)     0.8069    0.7806    0.7935      1103
+      1945-1948 (Independence)     0.8614    0.7966    0.8277       757
+
+                      accuracy                         0.8470      4516
+                     macro avg     0.8605    0.8439    0.8515      4516
+                  weighted avg     0.8469    0.8470    0.8462      4516

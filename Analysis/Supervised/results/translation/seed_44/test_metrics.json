@@ -1,0 +1,59 @@
+{
+  "macro_f1": 0.9740101101402179,
+  "weighted_f1": 0.9740500417356288,
+  "accuracy": 0.9740431148262209,
+  "nll": 0.3683078532829109,
+  "per_class": {
+    "Translated": {
+      "precision": 0.9655952919873246,
+      "recall": 0.9806896551724138,
+      "f1": 0.9730839416058394,
+      "support": 2175
+    },
+    "Original English": {
+      "precision": 0.982028241335045,
+      "recall": 0.967946014339941,
+      "f1": 0.9749362786745964,
+      "support": 2371
+    }
+  },
+  "confusion_matrix": [
+    [
+      2133,
+      42
+    ],
+    [
+      76,
+      2295
+    ]
+  ],
+  "n_test_docs": 4546,
+  "docs_over_512_tokens": {
+    "n": 928,
+    "macro_f1": 0.97456330517555,
+    "accuracy": 0.9762931034482759
+  },
+  "docs_up_to_512_tokens": {
+    "n": 3618,
+    "macro_f1": 0.9734530238183535,
+    "accuracy": 0.9734660033167496
+  },
+  "docs_chunked": {
+    "n": 1,
+    "macro_f1": 1.0,
+    "accuracy": 1.0
+  },
+  "seed": 44,
+  "training": {
+    "seed": 44,
+    "best_epoch": 10,
+    "best_val_macro_f1": 0.9759872929604632,
+    "epochs_run": 10,
+    "train_sec": 3192.0543920993805,
+    "steps_per_epoch": 1185,
+    "oom_splits": 0,
+    "attention": "sdpa",
+    "token_budget": 65536,
+    "peak_mem_gb": 65.59871292114258
+  }
+}

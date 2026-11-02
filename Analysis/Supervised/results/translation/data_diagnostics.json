@@ -1,0 +1,27 @@
+{
+  "documents_total": 45458,
+  "documents_unknown_language": 0,
+  "documents_empty_contents": 0,
+  "documents_usable": 45458,
+  "translated_source_languages": {
+    "Gujarati": 16451,
+    "Hindi": 5114,
+    "Urdu": 170,
+    "Marathi": 4,
+    "Bengali": 4,
+    "Tamil": 3,
+    "Oriya": 1,
+    "French": 1
+  },
+  "class_counts": {
+    "Translated": 21748,
+    "Original English": 23710
+  },
+  "token_stats": {
+    "median": 185.0,
+    "p95": 1369.0,
+    "max": 217268,
+    "docs_over_510": 9339,
+    "docs_over_max_length": 39
+  }
+}

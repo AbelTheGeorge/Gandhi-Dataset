@@ -1,0 +1,69 @@
+CWMG kmeans_umap_k40 (Qwen3-Embedding-8B) - macro-cluster derivation
+======================================================================
+Method            : Ward agglomerative clustering on L2-normalised
+                    topic embeddings (mean of member documents, 40 x 4096)
+Clusters (k)      : 3
+Total documents   : 45,458
+Clustered docs    : 45,458 (100.0%)
+Outlier docs      : 0 (0.0%)
+Topics discovered : 40
+Topics plotted    : 40 largest
+
+Silhouette (cosine) by k:
+  k=2: 0.208
+  k=3: 0.220
+  k=4: 0.228
+  k=5: 0.205
+  k=6: 0.194
+
+----------------------------------------------------------------------
+CLUSTER 1: Personal correspondence and ashram life
+  19 topics (19 shown on the map), 22,935 documents (50.5% of all documents)
+    T0     2417  treatment, hospital, doctor, sushila, fever, worry, days, bombay
+    T3     1856  delhi, don, god, matter, bombay, new, ps, enclosed
+    T5     1716  india, satyagraha, delhi, road, visit, bombay, calcutta, new
+    T6     1708  sushila, daughter, manilal, days, don, news, worry, father
+    T7     1563  sushila, mind, don, god, mahadev, certainly, father, manilal
+    T10    1422  women, kitchen, narandas, don, things, rules, matter, certainly
+    T11    1374  handwriting, studies, study, children, school, hindi, examination, english
+    T14    1314  god, mind, service, truth, duty, life, person, heart
+    T16    1255  marriage, brahmacharya, wife, married, husband, woman, man, girl
+    T17    1219  milk, water, food, diet, eat, cure, fruit, body
+    T19    1123  money, rs, fund, trustees, farm, trust, account, bapa
+    T20    1122  days, mahadev, bombay, tour, delhi, tomorrow, ps, train
+    T21    1120  god, man, thou, truth, world, gita, prayer, life
+    T26     897  idiot, tyrant, amrit, delhi, amrit kaur, kaur, mira, mahadev
+    T27     772  navajivan, paper, young india, gujarati, book, harijan, copies, press
+    T28     758  house, mrs, upper house, lower house, upper, miss, henry, road
+    T35     477  death, grief, grieve, body, god, away, soul, condolences
+    T36     451  english, translation, hindi, gujarati, book, article, mahadev, harijan
+    T37     371  hindi, language, urdu, hindustani, english, script, languages, sammelan
+
+----------------------------------------------------------------------
+CLUSTER 2: Political struggle, South Africa and public affairs
+  13 topics (13 shown on the map), 14,546 documents (32.0% of all documents)
+    T2     1981  non, violence, non violence, congress, india, government, violent, operation
+    T4     1816  congress, committee, wire, bombay, delhi, opinion, jawaharlal, conference
+    T8     1542  indians, british, transvaal, colony, natal, government, law, british indians
+    T12    1355  indians, transvaal, south, africa, gaol, community, south africa, government
+    T15    1270  congress, india, government, conference, british, committee, states, settlement
+    T22    1070  muslims, hindus, muslim, pakistan, hindu, india, sikhs, god
+    T23    1052  delhi, vallabhbhai, bombay, wire, new delhi, jawaharlal, new, sardar
+    T24    1026  ahimsa, violence, non, non violence, life, man, satyagraha, truth
+    T25    1016  london, south, africa, south africa, hotel, indians, hotel cecil, cecil
+    T30     697  government, prisoners, statement, evidence, public, case, punjab, law
+    T32     591  fast, fasting, fasts, god, days, undertake, undertaken, body
+    T33     575  government, salt, bardoli, non, raiyats, revenue, swaraj, struggle
+    T34     555  jail, finished, silence, news, prisoner, mahadev, yesterday, prison
+
+----------------------------------------------------------------------
+CLUSTER 3: Constructive programme and social reform
+  8 topics (8 shown on the map), 7,977 documents (17.5% of all documents)
+    T1     2175  harijans, untouchability, harijan, temple, hindus, caste, temples, untouchables
+    T9     1426  khadi, spinning, rounds, yarn, spun, spun rounds, wheel, spinning wheel
+    T13    1347  khadi, spinning, yarn, cloth, village, spinners, wheel, cotton
+    T18    1207  cloth, khadi, foreign, swaraj, spinning, foreign cloth, india, congress
+    T29     714  women, india, men, spinning, khadi, villages, country, village
+    T31     635  education, students, schools, teachers, school, national, children, boys
+    T38     282  cow, cattle, cows, cow protection, milk, protection, buffalo, slaughter
+    T39     191  prohibition, drink, liquor, revenue, women, drinking, opium, habit

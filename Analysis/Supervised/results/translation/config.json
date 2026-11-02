@@ -1,0 +1,25 @@
+{
+  "model": "answerdotai/ModernBERT-base",
+  "max_length": 8192,
+  "chunk_overlap": 512,
+  "max_batch_seqs": 32,
+  "token_budget": 65536,
+  "learning_rate": 5e-05,
+  "weight_decay": 0.01,
+  "max_epochs": 10,
+  "warmup_ratio": 0.1,
+  "patience": 3,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "split_seed": 42,
+  "split": "80/10/10 stratified by label, split by document before chunking",
+  "condition": "raw",
+  "log_every_sec": 60,
+  "smoke": false,
+  "smoke_docs_per_class": null,
+  "attention": "sdpa",
+  "token_budget_used": 65536
+}

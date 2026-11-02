@@ -1,0 +1,34 @@
+{
+  "documents_total": 45458,
+  "documents_missing_date": 298,
+  "documents_unparsed_date": 0,
+  "documents_out_of_range_year": 0,
+  "documents_empty_contents": 0,
+  "documents_usable": 45160,
+  "date_resolution_counts": {
+    "day": 44844,
+    "missing": 298,
+    "month": 178,
+    "year": 138
+  },
+  "leakage_probe": {
+    "fraction_with_true_year_in_text": 0.8773029229406555,
+    "regex_probe_coverage": 0.895482728077945,
+    "regex_probe_accuracy_on_covered": 0.9843719090009891,
+    "regex_probe_accuracy_overall": 0.8814880425155004
+  },
+  "class_counts": {
+    "1884-1914 (South Africa)": 4510,
+    "1915-1924 (Emergence)": 4631,
+    "1925-1934 (Civil Disobedience)": 17422,
+    "1935-1944 (Wardha Era)": 11030,
+    "1945-1948 (Independence)": 7567
+  },
+  "token_stats": {
+    "median": 185.0,
+    "p95": 1372.0,
+    "max": 217423,
+    "docs_over_510": 9305,
+    "docs_over_max_length": 38
+  }
+}
