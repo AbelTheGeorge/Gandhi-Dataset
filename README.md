@@ -2,6 +2,10 @@
 
 A structured JSON dataset of the *Collected Works of Mahatma Gandhi*, extracted from the 98-volume electronic edition published by the Publications Division, Government of India. The original CWMG project ran from September 1956 to October 2, 1994. This release converts it into a document-level corpus with metadata for dates, document types, footnotes, language provenance, and archival sources.
 
+## Paper
+
+The dataset is described in *Collected Works of Mahatma Gandhi (CWMG) Dataset: A Metadata-Dense Dataset for Computational Humanities and Social Sciences*, accepted at CODS 2026. The full version, with an appendix covering the curation pipeline, representative records, and reproducibility details, is in [`Paper/CWMG_Dataset_Full_Paper.pdf`](Paper/CWMG_Dataset_Full_Paper.pdf). A citation will be added once the proceedings are published.
+
 ## Dataset Overview
 
 | Statistic | Value |
@@ -101,7 +105,7 @@ Gandhi's writings span a wide range of forms and states of completeness, so sort
 
 Labels are assigned by an ordered set of deterministic rules over each document's title, source, contents and footnotes, with written policies for ambiguous forms: for example, a title beginning "LETTER TO" or "CABLE TO", a salutation and signature, a third-person report of a speech, or publication in one of Gandhi's own periodicals.
 
-As a check, a language model (DeepSeek V4 Flash) suggested labels for the 12,887 documents whose title does not state a type, and agreed with the rules on 87.8% of them. All 1,545 disagreements (3.4% of the corpus) were resolved by hand, and documents the rules could not classify were labelled by hand, 456 (1.0%) in all. Language-model suggestions are never used as final labels.
+As a check, a language model (DeepSeek V4 Flash) suggested labels for the 12,887 documents whose title does not state a type, and agreed with the rules on 87.8% of the 12,670 the rules labeled. Of the 1,545 disagreements (3.4% of the corpus), 225 were labeled individually by hand and 1,320 were settled by written policies decided after reviewing the cases. In all, 456 documents (1.0%), including the 217 no rule covered, were labeled individually by hand. Language-model suggestions are never used as final labels.
 
 Readers should bear this in mind when using the dataset: the labels are reliable for clear-cut documents but less certain at the boundaries between categories. Contributions toward a more detailed classification scheme are welcome.
 
